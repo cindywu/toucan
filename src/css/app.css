@@ -1,0 +1,21 @@
+@import-normalize;
+@import 'reference-list.css';
+@import 'buttons.css';
+@import 'navigation-sidebar.css';
+
+*, *::before, *::after {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+}
