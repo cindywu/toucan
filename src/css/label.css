@@ -1,0 +1,10 @@
+.label {
+  border: 1px solid hsl(0, 0%, 67%);
+  border-radius: 20px;
+  padding: 3px 8px;
+  background-color: transparent;
+}
+
+.label span {
+  background-color: transparent;
+}

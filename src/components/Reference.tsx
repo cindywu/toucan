@@ -4,43 +4,23 @@ import LabelList from './LabelList'
 export default function Reference(props) {
   const { 
     name, 
-    parent, 
-    tags, 
+    parent,
     date, 
-    description,
     labels
   } = props
 
+  const handleClick = () => {
+    console.log('clicked', name)
+  }
+
   return (
-    <div>
-      <div>
-        <p>{name}</p>
-        <div>
-          <button>Edit</button>
-          <button>Delete</button>
-        </div>
-      </div>
-      <div>
-        <span>Parent:</span>
-        <span>{parent}</span>
-      </div>
-      <div>
-        <span>Tags:</span>
-        <span>{tags}</span>
-      </div>
-      <div>
-        <span>Date:</span>
-        <span>{date}</span>
-      </div>
-      <div>
-        <span>Description:</span>
-        <span>{description}</span>
-      </div>
-      <div>
-        <span>Labels:</span>
-        <div>
-          <LabelList labels={labels}/>
-        </div>
+    <div className="reference" onClick={handleClick}>
+      <div className="reference__container">
+        <span className="reference__name mr-1">{name}</span>
+        <span className="reference__parent">{` › `}</span>
+        <span className="reference__parent mr-1">{parent}</span>
+        <LabelList labels={labels}/>
+        <span className="reference__date">{date}</span>
       </div>
     </div>
   )

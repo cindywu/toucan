@@ -2,13 +2,18 @@
 @import 'reference-list.css';
 @import 'buttons.css';
 @import 'navigation-sidebar.css';
+@import 'reference.css';
+@import 'label-list.css';
+@import 'label.css';
+
 
 *, *::before, *::after {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: hsl(0, 0%, 96%);;
 }
 
 html {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 body {
@@ -18,4 +23,8 @@ body {
 
 .app-container {
   display: flex;
+}
+
+.mr-1 {
+  margin-right: 5px;
 }

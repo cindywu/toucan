@@ -6,8 +6,8 @@ export default function LabelList({ labels }) {
     return <Label key={label.id} {...label}/>
   })
   return (
-    <div>
+    <span className="label-list mr-1">
       {labelElements}
-    </div>
+    </span>
   )
 }

@@ -1,0 +1,30 @@
+.reference {
+  padding-top: 12px;
+  padding-left: 24px;
+  padding-bottom: 12px;
+  cursor: default;
+}
+
+.reference:hover {
+  background-color: hsl(210, 8%, 93%);
+}
+
+.reference__container {
+  background-color: transparent;
+  align-items: center;
+}
+
+.reference__name {
+  background-color: transparent;
+  color: hsl(0, 0%, 33%);;
+}
+
+.reference__parent {
+  background-color: transparent;
+  color: hsl(0, 0%, 67%);;
+}
+
+.reference__date {
+  background-color: transparent;
+  color: hsl(0, 0%, 67%);;
+}
