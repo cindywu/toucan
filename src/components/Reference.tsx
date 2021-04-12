@@ -1,14 +1,16 @@
 import React from 'react'
 import LabelList from './LabelList'
+import { useReferences } from './App'
 
 export default function Reference(props) {
+  const { handleReferenceDelete } = useReferences()
+
   const { 
     id,
     name, 
     parent,
     date, 
     labels,
-    handleReferenceDelete
   } = props
 
   const handleClick = () => {

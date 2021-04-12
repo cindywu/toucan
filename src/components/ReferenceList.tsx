@@ -1,27 +1,32 @@
 import React from 'react'
 import Reference from './Reference'
+import { useReferences } from './App'
+import type { IReference } from './core'
 
-export default function ReferenceList(props) {
-  const { 
-    references, 
-    handleReferenceAdd, 
-    handleReferenceDelete
-  } = props
+
+const AddReferenceButton = () => {
+  const { handleReferenceAdd } = useReferences()
+
+  return (
+    <div className="reference-list__add-reference-btn-container">
+      <button 
+        className="btn btn--primary" 
+        onClick={handleReferenceAdd}
+      >+</button>
+    </div>
+  )
+}
+export default function ReferenceList() {
+  const { references } = useReferences()
   
   return (
     <div className="reference-list">
-      <div className="reference-list__add-reference-btn-container">
-        <button 
-          className="btn btn--primary" 
-          onClick={handleReferenceAdd}
-        >+</button>
-      </div>
+      <AddReferenceButton />
       <div className="reference-list__reference-list-container">
-        {references.map(reference => {
+        {references.map((reference: IReference) => {
           return (
-            <Reference 
+            <Reference
               key={reference.id} 
-              handleReferenceDelete = {handleReferenceDelete}
               {...reference}
             />
           )
