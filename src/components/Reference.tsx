@@ -3,10 +3,12 @@ import LabelList from './LabelList'
 
 export default function Reference(props) {
   const { 
+    id,
     name, 
     parent,
     date, 
-    labels
+    labels,
+    handleReferenceDelete
   } = props
 
   const handleClick = () => {
@@ -16,6 +18,9 @@ export default function Reference(props) {
   return (
     <div className="reference" onClick={handleClick}>
       <div className="reference__container">
+        <span 
+          className="mr-1 reference__date" 
+          onClick={() => handleReferenceDelete(id)}>Delete</span>
         <span className="reference__name mr-1">{name}</span>
         <span className="reference__parent">{` › `}</span>
         <span className="reference__parent mr-1">{parent}</span>

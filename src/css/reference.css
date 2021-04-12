@@ -16,15 +16,15 @@
 
 .reference__name {
   background-color: transparent;
-  color: hsl(0, 0%, 33%);;
+  color: hsl(0, 0%, 33%);
 }
 
 .reference__parent {
   background-color: transparent;
-  color: hsl(0, 0%, 67%);;
+  color: hsl(0, 0%, 67%);
 }
 
 .reference__date {
   background-color: transparent;
-  color: hsl(0, 0%, 67%);;
+  color: hsl(0, 0%, 67%);
 }

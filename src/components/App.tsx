@@ -1,13 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReferenceList from './ReferenceList'
 import NavigationSidebar from './NavigationSidebar'
 import '../css/app.css'
+import {v4 as uuidv4} from 'uuid'
 
 function App() {
+  const [references, setReferences] = useState(sampleReferences)
+  
+  function handleReferenceAdd() {
+    const newReference = {
+      id: uuidv4(),
+      name: 'New',
+      parent: 'Parent',
+      date: 'date',
+      description:'description',
+      labels: [
+        {
+          id: uuidv4(),
+          name: 'name',
+          color: 'color'
+        }
+      ]
+    }
+    setReferences([...references, newReference])
+  }
+
+  function handleReferenceDelete(id) {
+
+    setReferences(references.filter(reference => reference.id !== id))
+  }
+
   return (
     <div className="app-container">
       <NavigationSidebar />
-      <ReferenceList references={sampleReferences}/>
+      <ReferenceList 
+        references={references}
+        handleReferenceAdd={handleReferenceAdd}
+        handleReferenceDelete={handleReferenceDelete}
+      />
     </div>
   )
 }

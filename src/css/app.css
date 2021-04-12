@@ -9,7 +9,7 @@
 
 *, *::before, *::after {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: hsl(0, 0%, 96%);;
+  background-color: hsl(0, 0%, 96%);
 }
 
 html {
