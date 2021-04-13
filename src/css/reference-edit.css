@@ -8,3 +8,60 @@
   width: 25%;
   overflow-y: auto;
 }
+
+.reference-edit__remove-button-container {
+  text-align: end;
+}
+
+.reference-edit__remove-button {
+  padding: 0;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  color: hsl(0, 0%, 77%);
+}
+
+.reference-edit__details-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 12px;
+  column-gap: 12px;
+}
+
+.reference-edit__label {
+}
+
+.reference-edit__input {
+  border: 1px solid hsl(0, 0%, 77%);
+  border-radius: 3px;
+  font-size: inherit;
+  padding: 5px 10px;
+  outline: none;
+  width: 100%;
+}
+
+textarea.reference-edit__input {
+  resize: none;
+  height: 100px;
+}
+
+.reference-edit__label-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, auto);
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.reference-edit__add-label-btn-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .reference-edit__details-grid,
+  .reference-edit__label-grid {
+    grid-template-columns: 1fr;
+  }
+}
