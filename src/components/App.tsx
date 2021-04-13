@@ -10,14 +10,20 @@ interface References extends Array<IReference>{}
 
 type ReferencesContextType = {
   references: References
+  selectedReference: IReference | undefined
   handleReferenceAdd: () => void
   handleReferenceDelete: (id: string) => void
+  handleReferenceSelect: (id: string) => void
+  handleReferenceChange: (id: string, reference: IReference) => void
 }
 
 const defaultContextValue = {
   references: [],
+  selectedReference: undefined,
   handleReferenceAdd: () => {},
-  handleReferenceDelete: (id: string) => {}
+  handleReferenceDelete: (id: string) => {},
+  handleReferenceSelect: (id: string) => {},
+  handleReferenceChange: (id: string, reference: IReference) => {}
 }
 
 const ReferencesContext = createContext<ReferencesContextType>(defaultContextValue)
@@ -30,6 +36,9 @@ const LOCAL_STORAGE_KEY = 'toucan.references'
 
 export const ReferenceProvider = ({ children }: Props) => {
   const [references, setReferences] = useState(sampleReferences)
+  const [selectedReferenceId, setSelectedReferenceId] = useState()
+
+  const selectedReference = references.find(reference => reference.id === selectedReferenceId)
 
   useEffect(() => {
     const referenceJSON = localStorage.getItem(LOCAL_STORAGE_KEY)
@@ -39,6 +48,10 @@ export const ReferenceProvider = ({ children }: Props) => {
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(references))
   }, [references])
+
+  function handleReferenceSelect(id) {
+    setSelectedReferenceId(id)
+  }
 
   function handleReferenceAdd() {
     const newReference = {
@@ -58,6 +71,13 @@ export const ReferenceProvider = ({ children }: Props) => {
     setReferences([...references, newReference])
   }
 
+  function handleReferenceChange(id, reference) {
+    const newReferences = [...references]
+    const index = newReferences.findIndex(r => r.id === id)
+    newReferences[index] = reference
+    setReferences(newReferences)
+  }
+
   function handleReferenceDelete(id) {
     setReferences(references.filter(reference => reference.id !== id))
   }
@@ -65,8 +85,11 @@ export const ReferenceProvider = ({ children }: Props) => {
   return (
     <ReferencesContext.Provider value={{
       references,
+      selectedReference,
       handleReferenceAdd,
-      handleReferenceDelete
+      handleReferenceDelete,
+      handleReferenceSelect,
+      handleReferenceChange
     }}>
       {children}
     </ReferencesContext.Provider>
