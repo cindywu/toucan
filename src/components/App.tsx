@@ -1,10 +1,10 @@
 import React, { useState, createContext, useContext, useEffect } from 'react'
 import ReferenceList from './ReferenceList'
 import NavigationSidebar from './NavigationSidebar'
+import ReferenceEdit from './ReferenceEdit'
 import '../css/app.css'
 import { v4 as uuidv4 } from 'uuid'
 import { IReference } from './core'
-import { parse } from 'dotenv/types'
 
 interface References extends Array<IReference>{}
 
@@ -81,6 +81,7 @@ function App() {
       <div className="app-container">
         <NavigationSidebar />
         <ReferenceList />
+        <ReferenceEdit />
       </div>
     </ReferenceProvider>
   )

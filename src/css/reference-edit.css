@@ -1,0 +1,10 @@
+.reference-edit {
+  padding: 30px;
+  padding-top: 12px;
+  position: fixed;
+  right: 0;
+  top: 50;
+  max-height: 100%;
+  width: 25%;
+  overflow-y: auto;
+}

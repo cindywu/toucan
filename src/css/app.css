@@ -5,11 +5,13 @@
 @import 'reference.css';
 @import 'label-list.css';
 @import 'label.css';
+@import 'reference-edit.css';
 
 
 *, *::before, *::after {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: hsl(0, 0%, 96%);
+  box-sizing: border-box;
 }
 
 html {
