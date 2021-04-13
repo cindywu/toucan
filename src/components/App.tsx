@@ -68,6 +68,7 @@ export const ReferenceProvider = ({ children }: Props) => {
         }
       ]
     }
+    setSelectedReferenceId(newReference.id)
     setReferences([...references, newReference])
   }
 
