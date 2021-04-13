@@ -1,7 +1,11 @@
 import React from 'react'
 
 export default function ReferenceLabelEdit(props) {
-  const { label, handleLabelChange } = props
+  const { 
+    label,
+    handleLabelChange,
+    handleLabelDelete
+   } = props
 
   function handleChange(changes) {
     handleLabelChange(label.id, { ...label, ...changes })
@@ -21,7 +25,10 @@ export default function ReferenceLabelEdit(props) {
         onChange={(e) => handleChange({ color: e.target.value })}
         value={label.color}
       />
-      <button className="btn btn--danger">
+      <button 
+        className="btn btn--danger"
+        onClick={() => handleLabelDelete(label.id)}
+      >
         &times;
       </button>
     </>

@@ -1,6 +1,7 @@
 import React from 'react'
 import ReferenceLabelEdit from './ReferenceLabelEdit'
 import { useReferences } from './App'
+import {v4 as uuidv4} from 'uuid'
 
 export default function ReferenceEdit() {
   const { selectedReference, handleReferenceChange, handleReferenceDelete } = useReferences()
@@ -18,6 +19,21 @@ export default function ReferenceEdit() {
     const index = newLabels.findIndex(label => label.id === id)
     newLabels[index] = label
     handleChange({ labels: newLabels })
+  }
+
+  const handleLabelAdd =() =>  {
+    const newLabel = {
+      id: uuidv4(),
+      name: '',
+      color: '',
+    }
+    handleChange({ labels: [...selectedReference.labels, newLabel]})
+  }
+
+  const handleLabelDelete = (id: string) => {
+    handleChange({
+      labels: selectedReference.labels.filter((label) => label.id !== id)
+    })
   }
 
   return (
@@ -83,14 +99,21 @@ export default function ReferenceEdit() {
         <div></div>
         {selectedReference.labels.map(label => (
            <ReferenceLabelEdit 
-           handleLabelChange={handleLabelChange}
+            handleLabelChange={handleLabelChange}
+            handleLabelAdd={handleLabelAdd}
+            handleLabelDelete={handleLabelDelete}
             key={label.id} 
             label={label}
           />
         ))}
       </div>
       <div className="reference-edit__add-label-btn-container">
-        <button className="btn btn--primary">Add Label</button>
+        <button 
+          className="btn btn--primary"
+          onClick={() => handleLabelAdd()}
+        >
+          Add Label
+        </button>
       </div>
       <div className="reference-edit__add-label-btn-container">
         <button 
