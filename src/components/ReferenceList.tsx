@@ -10,7 +10,7 @@ const AddReferenceButton = () => {
   return (
     <div className="reference-list__add-reference-btn-container">
       <button 
-        className="btn btn--primary" 
+        className="btn btn--add-reference" 
         onClick={handleReferenceAdd}
       >+</button>
     </div>
