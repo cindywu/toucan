@@ -1,20 +1,22 @@
 .reference-edit {
   padding: 30px;
-  padding-top: 12px;
+  padding-top: 51px;
   position: fixed;
   right: 0;
   top: 50;
-  max-height: 100%;
   width: 25%;
   overflow-y: auto;
+  background-color: hsl(0, 0%, 87%);
+  height: 100vh;
 }
 
 .reference-edit__remove-button-container {
   text-align: end;
+  background-color: inherit;
 }
 
 .reference-edit__remove-button {
-  padding: 0;
+  padding: 1em 0;
   background: none;
   outline: none;
   border: none;
@@ -27,9 +29,11 @@
   grid-template-columns: auto 1fr;
   row-gap: 12px;
   column-gap: 12px;
+  background-color: inherit;
 }
 
 .reference-edit__label {
+  background-color: inherit;
 }
 
 .reference-edit__input {
@@ -53,12 +57,18 @@ textarea.reference-edit__input {
   grid-template-columns: repeat(3, auto);
   margin-top: 20px;
   margin-left: 40px;
+  background-color: inherit;
 }
 
 .reference-edit__add-label-btn-container,
 .reference-edit__add-comment-btn-container {
   margin-top: 20px;
   text-align: center;
+  background-color: inherit;
+}
+
+.reference-edit__comment {
+  background-color: inherit;
 }
 
 @media (max-width: 1000px) {
@@ -67,4 +77,12 @@ textarea.reference-edit__input {
   .reference-edit__comment-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.reference-edit__label-grid div {
+  background-color: inherit;
+}
+
+.reference-edit__comment-grid div {
+  background-color: inherit;
 }

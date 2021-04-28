@@ -16,6 +16,7 @@ const AddReferenceButton = () => {
     </div>
   )
 }
+
 export default function ReferenceList() {
   const { references } = useReferences()
   
