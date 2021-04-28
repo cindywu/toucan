@@ -20,11 +20,16 @@ export default function Reference(props) {
   return (
     <div className="reference" onClick={handleClick}>
       <div className="reference__container">
-        <span className="reference__name mr-1">{name}</span>
-        <span className="reference__parent">{` › `}</span>
-        <span className="reference__parent mr-1">{parent}</span>
-        <LabelList labels={labels}/>
-        <span className="reference__date">{date}</span>
+        <div className="reference__left">
+          <span className="reference__name mr-1">{name}</span>
+          <span className="reference__parent">{` › `}</span>
+          <span className="reference__parent mr-1">{parent}</span>
+        </div>
+        <div className="reference__right">
+          <LabelList labels={labels}/>
+          <span className="reference__date">{date}</span>
+        </div>
+        
       </div>
     </div>
   )

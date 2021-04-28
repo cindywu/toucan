@@ -12,6 +12,8 @@
 .reference__container {
   background-color: transparent;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .reference__name {
@@ -27,4 +29,8 @@
 .reference__date {
   background-color: transparent;
   color: hsl(0, 0%, 67%);
+}
+
+.reference__right {
+  margin-right: 24px;
 }
