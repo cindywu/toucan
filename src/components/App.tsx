@@ -72,6 +72,13 @@ export const ReferenceProvider = ({ children }: Props) => {
           name: 'name',
           color: 'color'
         }
+      ],
+      comments: [
+        {
+          id: uuidv4(),
+          user: '@cindy',
+          content: 'i am a comment'
+        }
       ]
     }
     setSelectedReferenceId(newReference.id)
@@ -136,6 +143,13 @@ const sampleReferences = [
         name: 'Missing',
         color: '#DB615D'
       }
+    ],
+    comments: [
+      {
+        id: '9d2e85a5-7448-4b1d-ae7b-eb5fa08060a4',
+        user: '@cindy',
+        content: 'why are we reading this?'
+      }
     ]
   },
   {
@@ -149,6 +163,13 @@ const sampleReferences = [
         id: 'f4f2cc13-4147-40cb-8cd0-c1b00b9a3257',
         name: 'Missing',
         color: '#DB615D'
+      }
+    ],
+    comments: [
+      {
+        id: '48a799bc-979a-4d9e-a5f3-357e8ad03b69',
+        user: '@cindy',
+        content: 'why are we reading this?'
       }
     ]
   },
@@ -164,6 +185,13 @@ const sampleReferences = [
         name: 'Journal article',
         color: '#EDC963'
       }
+    ],
+    comments: [
+      {
+        id: '82e49ac5-a8da-4297-ba8e-04c12326f994',
+        user: '@cindy',
+        content: 'why are we reading this?'
+      }
     ]
   },
   {
@@ -178,6 +206,13 @@ const sampleReferences = [
         name: 'Journal article',
         color: '#EDC963'
       }
+    ],
+    comments: [
+      {
+        id: 'fed8a7dd-75eb-4c6d-a787-13e6aeab478d',
+        user: '@cindy',
+        content: 'why are we reading this?'
+      }
     ]
   },
   {
@@ -191,6 +226,13 @@ const sampleReferences = [
         id: 'b2635bb6-ed76-4de2-ad72-7e245a696f09',
         name: 'Book',
         color: '#D8EDF2'
+      }
+    ],
+    comments: [
+      {
+        id: 'b9fcd023-7453-4422-a25c-1cf3c1db45f3',
+        user: '@cindy',
+        content: 'why are we reading this?'
       }
     ]
   }

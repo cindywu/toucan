@@ -1,5 +1,6 @@
 import React from 'react'
 import ReferenceLabelEdit from './ReferenceLabelEdit'
+import ReferenceCommentEdit from './ReferenceCommentEdit'
 import { useReferences } from './App'
 import {v4 as uuidv4} from 'uuid'
 
@@ -26,7 +27,7 @@ export default function ReferenceEdit() {
     handleChange({ labels: newLabels })
   }
 
-  const handleLabelAdd =() =>  {
+  const handleLabelAdd = () =>  {
     const newLabel = {
       id: uuidv4(),
       name: '',
@@ -38,6 +39,28 @@ export default function ReferenceEdit() {
   const handleLabelDelete = (id: string) => {
     handleChange({
       labels: selectedReference.labels.filter((label) => label.id !== id)
+    })
+  }
+
+  function handleCommentChange(id, comment) {
+    const newComments = [...selectedReference.comments]
+    const index = newComments.findIndex(comment => comment.id === id)
+    newComments[index] = comment
+    handleChange({ comments: newComments })
+  }
+
+  const handleCommentAdd = () => {
+    const newComment = {
+      id: uuidv4(),
+      user: '@cindy',
+      content: 'i am new  comment'
+    }
+    handleChange({ comments: [...selectedReference.comments, newComment]})
+  }
+
+  const handleCommentDelete = (id: string) => {
+    handleChange({
+      comments: selectedReference.comments.filter((comment) => comment.id !== id)
     })
   }
 
@@ -123,6 +146,30 @@ export default function ReferenceEdit() {
           onClick={() => handleLabelAdd()}
         >
           Add Label
+        </button>
+      </div>
+      <br></br>
+      <label className="reference-edit__comment">Comments</label>
+      <div className="reference-edit__comment-grid">
+        <div>User</div>
+        <div>Content</div>
+        <div></div>
+        {selectedReference.comments.map(comment => (
+          <ReferenceCommentEdit 
+            handleCommentChange={handleCommentChange}
+            handleCommentAdd={handleCommentAdd}
+            handleCommentDelete={handleCommentDelete}
+            key={comment.id}
+            comment={comment}
+          />
+        ))}
+      </div>
+      <div className="reference-edit__add-comment-btn-container">
+        <button
+          className="btn btn--primary"
+          onClick={() => handleCommentAdd()}
+        >
+          Add Comment
         </button>
       </div>
       <div className="reference-edit__add-label-btn-container">

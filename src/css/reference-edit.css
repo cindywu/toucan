@@ -46,7 +46,8 @@ textarea.reference-edit__input {
   height: 100px;
 }
 
-.reference-edit__label-grid {
+.reference-edit__label-grid,
+.reference-edit__comment-grid {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(3, auto);
@@ -54,14 +55,16 @@ textarea.reference-edit__input {
   margin-left: 40px;
 }
 
-.reference-edit__add-label-btn-container {
+.reference-edit__add-label-btn-container,
+.reference-edit__add-comment-btn-container {
   margin-top: 20px;
   text-align: center;
 }
 
 @media (max-width: 1000px) {
   .reference-edit__details-grid,
-  .reference-edit__label-grid {
+  .reference-edit__label-grid,
+  .reference-edit__comment-grid {
     grid-template-columns: 1fr;
   }
 }
