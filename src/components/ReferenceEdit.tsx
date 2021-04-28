@@ -4,7 +4,12 @@ import { useReferences } from './App'
 import {v4 as uuidv4} from 'uuid'
 
 export default function ReferenceEdit() {
-  const { selectedReference, handleReferenceChange, handleReferenceDelete } = useReferences()
+  const { 
+    selectedReference, 
+    handleReferenceChange, 
+    handleReferenceDelete,
+    handleReferenceDeselect
+  } = useReferences()
 
   if (selectedReference === undefined) {
     return null
@@ -40,7 +45,12 @@ export default function ReferenceEdit() {
     selectedReference &&
     <div className="reference-edit">
       <div className="reference-edit__remove-button-container">
-        <button className="btn reference-edit__remove-button">&times;</button>
+        <button 
+          className="btn reference-edit__remove-button"
+          onClick={handleReferenceDeselect}
+        >
+          &times;
+        </button>
       </div>
       <div className="reference-edit__details-grid">
         <label 

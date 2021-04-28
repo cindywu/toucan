@@ -14,6 +14,7 @@ type ReferencesContextType = {
   handleReferenceAdd: () => void
   handleReferenceDelete: (id: string) => void
   handleReferenceSelect: (id: string) => void
+  handleReferenceDeselect: () => void
   handleReferenceChange: (id: string, reference: IReference) => void
 }
 
@@ -23,6 +24,7 @@ const defaultContextValue = {
   handleReferenceAdd: () => {},
   handleReferenceDelete: (id: string) => {},
   handleReferenceSelect: (id: string) => {},
+  handleReferenceDeselect: () => {},
   handleReferenceChange: (id: string, reference: IReference) => {}
 }
 
@@ -51,6 +53,10 @@ export const ReferenceProvider = ({ children }: Props) => {
 
   function handleReferenceSelect(id) {
     setSelectedReferenceId(id)
+  }
+
+  function handleReferenceDeselect() {
+    setSelectedReferenceId(undefined)
   }
 
   function handleReferenceAdd() {
@@ -90,6 +96,7 @@ export const ReferenceProvider = ({ children }: Props) => {
       handleReferenceAdd,
       handleReferenceDelete,
       handleReferenceSelect,
+      handleReferenceDeselect,
       handleReferenceChange
     }}>
       {children}
