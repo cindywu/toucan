@@ -53,7 +53,7 @@ export default function ReferenceEdit() {
     const newComment = {
       id: uuidv4(),
       user: '@cindy',
-      content: 'i am new  comment'
+      content: ''
     }
     handleChange({ comments: [...selectedReference.comments, newComment]})
   }

@@ -16,13 +16,13 @@ export default function ReferenceCommentEdit(props) {
       <input 
         className="reference-edit__input" 
         type="text"
-        onChange={(e) => handleChange({ name: e.target.value })}
+        onChange={(e) => handleChange({ user: e.target.value })}
         value={comment.user}
       />
       <input 
         className="reference-edit__input" 
         type="text"
-        onChange={(e) => handleChange({ color: e.target.value })}
+        onChange={(e) => handleChange({ content: e.target.value })}
         value={comment.content}
       />
       <button 
