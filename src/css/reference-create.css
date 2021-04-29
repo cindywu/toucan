@@ -16,12 +16,22 @@
 
 .reference-create__item {
   text-align: left;
-  padding: .5em;
+  padding-top: 1em;
+  color:hsla(0, 0%, 77%);
   left: 50%;
 }
 
 .reference-create__btn-container {
-  padding-top: 6em;
+  padding-top: 4em;
   display: flex;
   justify-content: space-between;
+}
+
+.reference-create__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reference-create__title {
+  padding: 5px 0;
 }
