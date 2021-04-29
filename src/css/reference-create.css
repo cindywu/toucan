@@ -1,0 +1,27 @@
+.reference-create__container {
+  z-index: 1;
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  left: 0;
+  right: 0;
+  top: 10%;
+  margin: 10% auto 0;
+  padding: 1em;
+  text-align: center;
+  border: 1px solid hsla(0, 0%, 77%);
+  box-shadow: 0 4px 20px hsla(0, 0%, 77%), 0 4px 20px hsla(0, 0%, 77%);
+  border-radius: 4px;
+}
+
+.reference-create__item {
+  text-align: left;
+  padding: .5em;
+  left: 50%;
+}
+
+.reference-create__btn-container {
+  padding-top: 6em;
+  display: flex;
+  justify-content: space-between;
+}

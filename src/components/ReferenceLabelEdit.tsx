@@ -5,7 +5,7 @@ export default function ReferenceLabelEdit(props) {
     label,
     handleLabelChange,
     handleLabelDelete
-   } = props
+  } = props
 
   function handleChange(changes) {
     handleLabelChange(label.id, { ...label, ...changes })

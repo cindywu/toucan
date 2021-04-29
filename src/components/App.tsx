@@ -2,6 +2,7 @@ import React, { useState, createContext, useContext, useEffect } from 'react'
 import ReferenceList from './ReferenceList'
 import NavigationSidebar from './NavigationSidebar'
 import ReferenceEdit from './ReferenceEdit'
+import ReferenceCreate from './ReferenceCreate'
 import '../css/app.css'
 import { v4 as uuidv4 } from 'uuid'
 import { IReference } from './core'
@@ -11,21 +12,25 @@ interface References extends Array<IReference>{}
 type ReferencesContextType = {
   references: References
   selectedReference: IReference | undefined
+  showReferenceCreate: boolean
   handleReferenceAdd: () => void
   handleReferenceDelete: (id: string) => void
   handleReferenceSelect: (id: string) => void
   handleReferenceDeselect: () => void
   handleReferenceChange: (id: string, reference: IReference) => void
+  handleShowReferenceCreateChange: () => void
 }
 
 const defaultContextValue = {
   references: [],
   selectedReference: undefined,
+  showReferenceCreate: false,
   handleReferenceAdd: () => {},
   handleReferenceDelete: (id: string) => {},
   handleReferenceSelect: (id: string) => {},
   handleReferenceDeselect: () => {},
-  handleReferenceChange: (id: string, reference: IReference) => {}
+  handleReferenceChange: (id: string, reference: IReference) => {},
+  handleShowReferenceCreateChange: () => {}
 }
 
 const ReferencesContext = createContext<ReferencesContextType>(defaultContextValue)
@@ -39,6 +44,7 @@ const LOCAL_STORAGE_KEY = 'toucan.references'
 export const ReferenceProvider = ({ children }: Props) => {
   const [references, setReferences] = useState(sampleReferences)
   const [selectedReferenceId, setSelectedReferenceId] = useState()
+  const [showReferenceCreate, setShowReferenceCreate] = useState(false)
 
   const selectedReference = references.find(reference => reference.id === selectedReferenceId)
 
@@ -83,6 +89,7 @@ export const ReferenceProvider = ({ children }: Props) => {
     }
     setSelectedReferenceId(newReference.id)
     setReferences([...references, newReference])
+    setShowReferenceCreate(!setShowReferenceCreate)
   }
 
   function handleReferenceChange(id, reference) {
@@ -96,15 +103,21 @@ export const ReferenceProvider = ({ children }: Props) => {
     setReferences(references.filter(reference => reference.id !== id))
   }
 
+  function handleShowReferenceCreateChange() {
+    setShowReferenceCreate(!showReferenceCreate)
+  }
+
   return (
     <ReferencesContext.Provider value={{
       references,
       selectedReference,
+      showReferenceCreate,
       handleReferenceAdd,
       handleReferenceDelete,
       handleReferenceSelect,
       handleReferenceDeselect,
-      handleReferenceChange
+      handleReferenceChange,
+      handleShowReferenceCreateChange
     }}>
       {children}
     </ReferencesContext.Provider>
@@ -116,6 +129,7 @@ export const useReferences = () => useContext(ReferencesContext)
 function App() {
   return (
     <ReferenceProvider>
+      <ReferenceCreate />
       <div className="app-container">
         <NavigationSidebar />
         <ReferenceList />

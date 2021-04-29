@@ -5,13 +5,15 @@ import type { IReference } from './core'
 
 
 const AddReferenceButton = () => {
-  const { handleReferenceAdd } = useReferences()
+  const { 
+    handleShowReferenceCreateChange
+  } = useReferences()
 
   return (
     <div className="reference-list__add-reference-btn-container">
       <button 
         className="btn btn--add-reference" 
-        onClick={handleReferenceAdd}
+        onClick={handleShowReferenceCreateChange}
       >+</button>
     </div>
   )
