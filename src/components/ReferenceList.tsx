@@ -1,5 +1,6 @@
 import React from 'react'
 import Reference from './Reference'
+import ReferenceView from './ReferenceView'
 import { useReferences } from './App'
 import type { IReference } from './core'
 
@@ -36,7 +37,7 @@ export default function ReferenceList() {
     <div className="reference-list">
       <AddReferenceButton />
       {selectedReference ?
-        <div>Reference View</div>
+        <ReferenceView />
       : 
         <div className="reference-list__reference-list-container">
           {references.map((reference: IReference) => {

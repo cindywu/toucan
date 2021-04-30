@@ -7,6 +7,7 @@
 @import 'label.css';
 @import 'reference-edit.css';
 @import 'reference-create.css';
+@import 'reference-view.css';
 
 *, *::before, *::after {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
