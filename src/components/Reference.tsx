@@ -11,6 +11,7 @@ export default function Reference(props) {
     parent,
     date, 
     labels,
+    description,
   } = props
 
   const handleClick = () => {
@@ -24,6 +25,7 @@ export default function Reference(props) {
           <span className="reference__name mr-1">{name}</span>
           <span className="reference__parent">{` › `}</span>
           <span className="reference__parent mr-1">{parent}</span>
+          <span className="reference__description">{description}</span>
         </div>
         <div className="reference__right">
           <LabelList labels={labels}/>

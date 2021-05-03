@@ -31,3 +31,8 @@
 .reference__right {
   margin-right: 24px;
 }
+
+.reference__description {
+  color: hsl(0, 0%, 33%);
+  font-weight: 500;
+}
