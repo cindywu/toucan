@@ -7,6 +7,7 @@ import type { IReference } from './core'
 
 const AddReferenceButton = () => {
   const { 
+    expandSelectedReference,
     handleShowReferenceCreateChange,
     handleReferenceDeselect,
     selectedReference
@@ -14,7 +15,7 @@ const AddReferenceButton = () => {
 
   return (
     <div className="reference-list__add-reference-btn-container">
-      {selectedReference &&
+      {selectedReference && expandSelectedReference &&
         <button 
           className='btn btn--secondary'
           onClick={handleReferenceDeselect}
@@ -31,12 +32,12 @@ const AddReferenceButton = () => {
 }
 
 export default function ReferenceList() {
-  const { references, selectedReference } = useReferences()
-  
+  const { references, selectedReference, expandSelectedReference } = useReferences()
+
   return (
     <div className="reference-list">
       <AddReferenceButton />
-      {selectedReference ?
+      {selectedReference && expandSelectedReference ?
         <ReferenceView />
       : 
         <div className="reference-list__reference-list-container">

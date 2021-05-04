@@ -20,7 +20,7 @@ export default function CommentForm() {
         <form className="comment-form__form" onSubmit={handleCommentAdd}>
           <textarea
             className="comment-form__textarea"
-            placeholder="What's on your mind?"
+            placeholder="What's on your mind..."
             ref={contentRef}
             required
           />

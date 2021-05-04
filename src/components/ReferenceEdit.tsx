@@ -6,10 +6,11 @@ import {v4 as uuidv4} from 'uuid'
 
 export default function ReferenceEdit() {
   const { 
-    selectedReference, 
+    selectedReference,
     handleReferenceChange, 
     handleReferenceDelete,
-    handleReferenceDeselect
+    handleReferenceDeselect,
+    handleExpandSelectedReference
   } = useReferences()
 
   if (selectedReference === undefined) {
@@ -62,6 +63,10 @@ export default function ReferenceEdit() {
     handleChange({
       comments: selectedReference.comments.filter((comment) => comment.id !== id)
     })
+  }
+
+  const handleReferenceExpand = () => {
+    handleExpandSelectedReference()
   }
 
   return (
@@ -178,6 +183,14 @@ export default function ReferenceEdit() {
           onClick={() => handleReferenceDelete(selectedReference.id)}
         >
           Archive
+        </button>
+      </div>
+      <div className="reference-edit__add-label-btn-container">
+        <button 
+          className="btn btn--danger"
+          onClick={handleReferenceExpand}
+        >
+          Expand
         </button>
       </div>
     </div>

@@ -13,24 +13,28 @@ type ReferencesContextType = {
   references: References
   selectedReference: IReference | undefined
   showReferenceCreate: boolean
+  expandSelectedReference: boolean
   handleReferenceAdd: () => void
   handleReferenceDelete: (id: string) => void
   handleReferenceSelect: (id: string) => void
   handleReferenceDeselect: () => void
   handleReferenceChange: (id: string, reference: IReference) => void
   handleShowReferenceCreateChange: () => void
+  handleExpandSelectedReference: () => void
 }
 
 const defaultContextValue = {
   references: [],
   selectedReference: undefined,
   showReferenceCreate: false,
+  expandSelectedReference: false,
   handleReferenceAdd: () => {},
   handleReferenceDelete: (id: string) => {},
   handleReferenceSelect: (id: string) => {},
   handleReferenceDeselect: () => {},
   handleReferenceChange: (id: string, reference: IReference) => {},
-  handleShowReferenceCreateChange: () => {}
+  handleShowReferenceCreateChange: () => {},
+  handleExpandSelectedReference: () => {}
 }
 
 const ReferencesContext = createContext<ReferencesContextType>(defaultContextValue)
@@ -45,6 +49,7 @@ export const ReferenceProvider = ({ children }: Props) => {
   const [references, setReferences] = useState(sampleReferences)
   const [selectedReferenceId, setSelectedReferenceId] = useState()
   const [showReferenceCreate, setShowReferenceCreate] = useState(false)
+  const [expandSelectedReference, setExpandSelectedReference] = useState(false)
 
   const selectedReference = references.find(reference => reference.id === selectedReferenceId)
 
@@ -63,6 +68,7 @@ export const ReferenceProvider = ({ children }: Props) => {
 
   function handleReferenceDeselect() {
     setSelectedReferenceId(undefined)
+    setExpandSelectedReference(!expandSelectedReference)
   }
 
   function handleReferenceAdd() {
@@ -107,17 +113,23 @@ export const ReferenceProvider = ({ children }: Props) => {
     setShowReferenceCreate(!showReferenceCreate)
   }
 
+  function handleExpandSelectedReference() {
+    setExpandSelectedReference(!expandSelectedReference)
+  }
+
   return (
     <ReferencesContext.Provider value={{
       references,
       selectedReference,
       showReferenceCreate,
+      expandSelectedReference,
       handleReferenceAdd,
       handleReferenceDelete,
       handleReferenceSelect,
       handleReferenceDeselect,
       handleReferenceChange,
-      handleShowReferenceCreateChange
+      handleShowReferenceCreateChange,
+      handleExpandSelectedReference
     }}>
       {children}
     </ReferencesContext.Provider>
@@ -141,113 +153,158 @@ function App() {
 
 const sampleReferences = [
   {
-    id: '6fb78320-ecf8-48c8-bcf0-23251a5d26cb',
+    id: uuidv4(),
     name: 'Clery 2013',
     parent: 'Wurzel 202X',
     date: 'Apr 10',
     description: 'someone said i should read this',
     labels: [
       {
-        id: '8ae7634b-52b0-4f29-bad1-33108b22fdba',
+        id: uuidv4(),
         name: 'Book',
         color: '#D8EDF2'
       },
       {
-        id: 'c1519e4a-ebee-4c96-94fd-c79566c5c30e',
+        id: uuidv4(),
         name: 'Missing',
         color: '#DB615D'
       }
     ],
     comments: [
       {
-        id: '9d2e85a5-7448-4b1d-ae7b-eb5fa08060a4',
+        id: uuidv4(),
         user: '@cindy',
         content: 'why are we reading this?'
       }
     ]
   },
   {
-    id: 'd7d2b2bb-82dd-49a6-b599-1908e4369cfa',
+    id: uuidv4(),
     name: 'Bromberg 1982',
     parent: 'Wurzel 202X',
     date: 'Apr 10',
     description: 'someone said i should read this',
     labels: [
       {
-        id: 'f4f2cc13-4147-40cb-8cd0-c1b00b9a3257',
+        id: uuidv4(),
         name: 'Missing',
         color: '#DB615D'
       }
     ],
     comments: [
       {
-        id: '48a799bc-979a-4d9e-a5f3-357e8ad03b69',
+        id: uuidv4(),
         user: '@cindy',
         content: 'why are we reading this?'
       }
     ]
   },
   {
-    id: 'caf4d6a7-7800-4a14-8bbe-84313fc6f738',
+    id: uuidv4(),
     name: 'Wurden 2016',
     parent: 'Wurzel 202X',
     date: 'Apr 10',
     description: 'someone said i should read this',
     labels: [
       {
-        id: '0a94716d-842d-4477-b344-8d97cc1e6299',
+        id: uuidv4(),
         name: 'Journal article',
         color: '#EDC963'
       }
     ],
     comments: [
       {
-        id: '82e49ac5-a8da-4297-ba8e-04c12326f994',
+        id: uuidv4(),
         user: '@cindy',
         content: 'why are we reading this?'
       }
     ]
   },
   {
-    id: '9abab388-7f2a-4f0a-b826-137ca6c6669b',
+    id: uuidv4(),
     name: 'Kirpatrick 1995',
     parent: 'Wurzel 202X',
     date: 'Apr 10',
     description: 'someone said i should read this',
     labels: [
       {
-        id: '9dbea036-6777-4913-9894-561a64d7f105',
+        id: uuidv4(),
         name: 'Journal article',
         color: '#EDC963'
       }
     ],
     comments: [
       {
-        id: 'fed8a7dd-75eb-4c6d-a787-13e6aeab478d',
+        id: uuidv4(),
         user: '@cindy',
         content: 'why are we reading this?'
       }
     ]
   },
   {
-    id: '6082d45d-bca3-4919-96a7-6c5b7d04be8a',
-    name: 'Atzeni 2004',
-    parent: 'Wurzel 202X',
+    id: uuidv4(),
+    name: 'Harchol et al. 2020',
+    parent: '',
     date: 'Apr 10',
-    description: 'someone said i should read this',
+    description: 'A public option for the core',
     labels: [
       {
-        id: 'b2635bb6-ed76-4de2-ad72-7e245a696f09',
-        name: 'Book',
-        color: '#D8EDF2'
+        id: uuidv4(),
+        name: 'Journal article',
+        color: '#EDC963'
       }
     ],
     comments: [
       {
-        id: 'b9fcd023-7453-4422-a25c-1cf3c1db45f3',
-        user: '@cindy',
-        content: 'why are we reading this?'
-      }
+        id: uuidv4(),
+        user: 'cindy',
+        content: 'GPT-3 summary: In the past, all the big companies who make up the Internet used to work together to help find new ways to build more Internet, but now they are all fighting against each other.'
+      },
+      {
+        id: uuidv4(),
+        user: 'jsoares',
+        content: 'Kids today... ^_^'
+      },
+      {
+        id: uuidv4(),
+        user: 'jsoares',
+        content: `This isn't new: most of the non-US Tier1 ISPs (TeliaSonera, Telefonica, Deutsche Telekom, Telecom Italia, NTT, ...) were once public.`
+      },
+      {
+        id: uuidv4(),
+        user: 'jsoares',
+        content: `This isn't new: most of the non-US Tier1 ISPs (TeliaSonera, Telefonica, Deutsche Telekom, Telecom Italia, NTT, ...) were once public.`
+      },
+      {
+        id: uuidv4(),
+        user: 'jsoares',
+        content: "(public as in state-owned)"
+      },
+      {
+        id: uuidv4(),
+        user: 'karolakirsanow',
+        content: `"Abundant supply and increasing competition have led to robust price erosion throughout the global bandwidth market. New 100 Gbps equipped submarine cable systems and upgrades to existing networks have further lowered unit costs"`
+      },
+      {
+        id: uuidv4(),
+        user: 'karolakirsanow',
+        content: `naive Q: how much of the internet's traffic is google and amazon sending packets to themselves?`
+      },
+      {
+        id: uuidv4(),
+        user: 'willscott',
+        content: `There's a disconnect here. the observation is that lots of traffic in individual wide area providers networks stays within their network now. The top level public core that is proposed does not compete with that trend - a google would still be motivated to lease direct lines between its disparate data centers since it can predict traffic needs and gains extra control by having that infrastructure fully under its control. Its hard to imagine that there's an economy of scale these large content providers are missing out on where they'd be economically motivated to offload that traffic back into public core. On the other hand the end user traffic to content providers still goes through 'the public internet' in so much as BGP is still in play. the public internet has just shrunk to the meet-me room at the local POP rather than backhaul links.`
+      },
+      {
+        id: uuidv4(),
+        user: 'jsoares',
+        content: `The observation is still relevant but I agree with Will's point. I don't know the answer to Karola's question but I wouldn't imagine it to be /that/ substantial. It is definitely a big (absolute) number given the scale of both services; however, it would be a very bad sign for their engineering if the inter-DC traffic overhead (as in inter-data-centre traffic / user traffic) was high. OVER-simplifying an example, YouTube only needs to transfer a new video to each DC once, from where it will be downloaded by millions of people afterwards. A more interesting question is e.g. how much of the trans-oceanic traffic consists of cloud providers moving data around? I'd expect that fraction to be a lot higher, because this model of distributed data centers greatly reduces the need for trans-oceanic user traffic even as it increases trans-oceanic inter-DC traffic.`
+      },
+      {
+        id: uuidv4(),
+        user: 'evan',
+        content: `I think the connection the authors imply later in the paper is that a public internet that this paragraph describes is more susceptible to net neutrality violations (since e.g. google can prioritize google traffic on their links)`
+      },
     ]
   }
 ]

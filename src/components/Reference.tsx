@@ -3,7 +3,7 @@ import LabelList from './LabelList'
 import { useReferences } from './App'
 
 export default function Reference(props) {
-  const { handleReferenceSelect } = useReferences()
+  const { handleReferenceSelect, selectedReference } = useReferences()
 
   const { 
     id,
@@ -18,9 +18,17 @@ export default function Reference(props) {
     handleReferenceSelect(id)
   }
 
+  const styles = {
+    backgroundColor: 'hsl(210, 8%, 93%)',
+  } as React.CSSProperties
+
   return (
-    <div className="reference" onClick={handleClick}>
-      <div className="reference__container">
+    <div 
+      className="reference" 
+      onClick={handleClick}
+      style={(selectedReference && id === selectedReference.id) ? styles : null }
+    >
+      <div className="reference__container" >
         <div className="reference__left">
           <span className="reference__name mr-1">{name}</span>
           <span className="reference__parent">{` › `}</span>

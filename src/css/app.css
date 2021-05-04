@@ -14,11 +14,11 @@
 
 *, *::before, *::after {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: hsl(0, 0%, 96%);
   box-sizing: border-box;
 }
 
 html {
+  background-color: hsl(0, 0%, 96%);
   font-size: 12px;
 }
 
