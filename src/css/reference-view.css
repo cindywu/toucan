@@ -1,3 +1,9 @@
+.reference-view__container {
+  flex-grow: 1;
+  overflow: auto;
+  height: 92vh;
+}
+
 .reference-view__reference-view-container {
   margin: 3em 6em;
 }
