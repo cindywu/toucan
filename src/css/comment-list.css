@@ -1,0 +1,10 @@
+.comment-list__container {
+  margin: 0;
+}
+
+.comment-list__title {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: hsl(0, 0%, 70%);
+  margin: 2em 0;
+}

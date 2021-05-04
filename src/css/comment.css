@@ -1,0 +1,45 @@
+.comment__container-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment__timeline {
+  padding: 2em 2em 2em 0;
+}
+
+.comment__user-avatar {
+  content: "";
+  display: inline-block;
+  background-color: hsl(0, 0%, 80%);
+  padding: .8em;
+  border-radius: 3px;
+}
+
+.comment__container {
+  width: 100%;
+  padding: 1em 2em;
+  border: 1px solid hsl(0, 13%, 90%);
+  margin: 1em 0;
+  border-radius: 3px;
+}
+
+.comment__user-info {
+  padding: 1em 0;
+}
+
+.comment__user {
+  font-size: 1em;
+  font-weight: 500;
+  color: hsl(0, 0%, 60%);
+}
+
+.comment__date {
+  color: hsl(0, 0%, 70%);
+}
+
+.comment__content {
+  padding: 1em 0;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: hsl(0, 0%, 30%);
+}

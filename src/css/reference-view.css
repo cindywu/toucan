@@ -1,6 +1,5 @@
 .reference-view__reference-view-container {
   margin: 3em 6em;
-  border-bottom: 1px solid hsl(0, 0%, 87.7%);
 }
 
 .reference-view__reference-name {
@@ -18,10 +17,10 @@
 
 .reference-view__add-sub-reference-button-container {
   margin: 1em 0;
+  border-bottom: 1px solid hsl(0, 0%, 87.7%);
 }
 
-.reference-view__add-sub-reference-button-container button {
+.reference-view__add-sub-reference-button-container .btn {
   margin: 1em 0;
   color: hsl(0, 0%, 33.3%);
-  
 }

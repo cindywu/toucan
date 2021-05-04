@@ -8,6 +8,9 @@
 @import 'reference-edit.css';
 @import 'reference-create.css';
 @import 'reference-view.css';
+@import 'comment.css';
+@import 'comment-list.css';
+@import 'comment-form.css';
 
 *, *::before, *::after {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
