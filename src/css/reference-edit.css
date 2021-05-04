@@ -7,6 +7,7 @@
   width: 25%;
   overflow-y: auto;
   background-color: hsl(0, 0%, 87%);
+  color: hsl(0, 0%, 50%);
   height: 100vh;
 }
 
@@ -85,4 +86,12 @@ textarea.reference-edit__input {
 
 .reference-edit__comment-grid div {
   background-color: inherit;
+}
+
+.reference-edit__expand {
+  color: hsl(0, 0%, 60%);
+}
+
+.reference-edit__archive {
+  color: hsl(0, 0%, 60%);
 }

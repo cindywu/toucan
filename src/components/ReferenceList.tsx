@@ -17,7 +17,7 @@ const AddReferenceButton = () => {
     <div className="reference-list__add-reference-btn-container">
       {selectedReference && expandSelectedReference &&
         <button 
-          className='btn btn--secondary'
+          className='btn btn--secondary reference-list__go-back'
           onClick={handleReferenceDeselect}
         >
           Go back

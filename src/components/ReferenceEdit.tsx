@@ -10,7 +10,8 @@ export default function ReferenceEdit() {
     handleReferenceChange, 
     handleReferenceDelete,
     handleReferenceDeselect,
-    handleExpandSelectedReference
+    handleExpandSelectedReference,
+    expandSelectedReference
   } = useReferences()
 
   if (selectedReference === undefined) {
@@ -73,6 +74,14 @@ export default function ReferenceEdit() {
     selectedReference &&
     <div className="reference-edit">
       <div className="reference-edit__remove-button-container">
+        { !expandSelectedReference &&
+          <button 
+            className="btn btn--secondary reference-edit__expand"
+            onClick={handleReferenceExpand}
+          >
+            Expand
+          </button>
+        }
         <button 
           className="btn reference-edit__remove-button"
           onClick={handleReferenceDeselect}
@@ -179,18 +188,10 @@ export default function ReferenceEdit() {
       </div>
       <div className="reference-edit__add-label-btn-container">
         <button 
-          className="btn btn--danger"
+          className="reference-edit__archive btn btn--danger"
           onClick={() => handleReferenceDelete(selectedReference.id)}
         >
           Archive
-        </button>
-      </div>
-      <div className="reference-edit__add-label-btn-container">
-        <button 
-          className="btn btn--danger"
-          onClick={handleReferenceExpand}
-        >
-          Expand
         </button>
       </div>
     </div>

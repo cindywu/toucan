@@ -17,3 +17,7 @@
   overflow: auto;
   height: 92vh;
 }
+
+.reference-list__go-back {
+  color: hsl(0, 0%, 60%);
+}

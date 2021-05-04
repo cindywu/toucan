@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useReferences } from './App'
 
 export default function ReferenceCreate() {
@@ -8,12 +8,16 @@ export default function ReferenceCreate() {
     handleShowReferenceCreateChange
   } = useReferences()
 
+  const nameRef = useRef()
+  const parentRef = useRef()
+  const descriptionRef = useRef()
+
   return (
     showReferenceCreate && 
       <div className="reference-create__container">
         <div className="reference-create__header">
           <div className="reference-create__title">
-            New reference
+            {/* New reference */}
           </div>
           <div>
             <button className="btn btn--secondary">Expand</button>
@@ -23,9 +27,30 @@ export default function ReferenceCreate() {
             >&times;</button>
           </div>
         </div>
-        <div className="reference-create__item">Name: New</div>
-        <div className="reference-create__item">Parent: Parent</div>
-        <div className="reference-create__item">Description: description</div>
+        <div className="reference-create__details-grid">
+          <input
+            type="text"
+            autoComplete="off"
+            name="name"
+            id="name"
+            className="reference-create__input"
+            placeholder="name"
+          />
+          <input
+            type="text"
+            autoComplete="off"
+            name="parent"
+            id="parent"
+            className="reference-create__input"
+            placeholder="parent"
+          />
+          <textarea 
+            name="description" 
+            id="description" 
+            className="reference-create__input"
+            placeholder="title"
+          />
+        </div>
         <div className="reference-create__btn-container">
           <div className="reference-create__btn-container-left">
             <button className="btn btn--secondary">
